@@ -3,7 +3,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-bike_hour = pd.read_csv("/main_data.csv")
+bike_hour = pd.read_csv("./main_data.csv")
 
 bike_hour['season'] = bike_hour['season'].astype('category')
 bike_hour['season'] = bike_hour['season'].cat.rename_categories({1: 'spring', 2: 'summer', 3: 'fall', 4: 'winter'})
