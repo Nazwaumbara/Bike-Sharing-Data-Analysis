@@ -2,8 +2,14 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import os
 
-bike_hour = pd.read_csv("./main_data.csv")
+# Get the current directory path and construct the path to main_data.csv
+current_dir = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(current_dir, "main_data.csv")
+
+# Load the data
+bike_hour = pd.read_csv(file_path)
 
 bike_hour['season'] = bike_hour['season'].astype('category')
 bike_hour['season'] = bike_hour['season'].cat.rename_categories({1: 'spring', 2: 'summer', 3: 'fall', 4: 'winter'})
